@@ -243,7 +243,7 @@ This API uses Nodemailer for sending verification emails. For Gmail:
 # Register user with profile picture
 curl -X POST http://localhost:5000/api/register \
   -F "name=Jane Smith" \
-  -F "email=jane.smith@example.com" \
+  -F "email=jane.smith@gmail.com" \
   -F "password=mySecurePass123" \
   -F "profilePicture=@./test-image.jpg"
 ```
@@ -293,7 +293,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Shoaib Akhtar**
 - Email: shoaibakhtarcs@gmail.com
-- LinkedIn: [\[Your LinkedIn Profile\]](https://www.linkedin.com/in/shoaib-akhtar-117329252/)
+- LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/shoaib-akhtar-117329252/)
 - GitHub: [My GitHub Profile](https://github.com/ShoaibProjects)
 
 ## 🙏 Acknowledgments
