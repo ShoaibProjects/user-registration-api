@@ -1,7 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
-import helmet from 'helmet';
-import cors from 'cors';
 import connectDB from './config/db';
 import authRoutes from './routes/authRoutes';
 
@@ -11,12 +9,6 @@ const app = express();
 
 // Connect to MongoDB
 connectDB();
-
-// Middleware: Secure HTTP headers
-app.use(helmet());
-
-// Middleware: Enable CORS (customize as needed)
-app.use(cors());
 
 // Middleware: Parse incoming JSON bodies
 app.use(express.json());
