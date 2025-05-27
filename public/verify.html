@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Verified Successfully</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 120px; height: 120px; left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { width: 60px; height: 60px; left: 70%; animation-delay: 2s; }
+    .particle:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 3s; }
+    .particle:nth-child(5) { width: 40px; height: 40px; left: 50%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 3rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .check-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: checkBounce 0.6s ease-out 0.5s both;
+    }
+
+    @keyframes checkBounce {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .check-icon::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .check-mark {
+      color: white;
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+      animation: checkDraw 0.5s ease-out 0.8s both;
+    }
+
+    @keyframes checkDraw {
+      from {
+        transform: scale(0) rotate(45deg);
+      }
+      to {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.6s ease-out 1s both;
+    }
+
+    .message {
+      font-size: 1.25rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      animation: fadeInUp 0.6s ease-out 1.2s both;
+    }
+
+    .success-details {
+      background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid #38a169;
+      animation: fadeInUp 0.6s ease-out 1.4s both;
+    }
+
+    .success-details h3 {
+      color: #22543d;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .success-details p {
+      color: #2d3748;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease-out 1.6s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 15px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #4a5568;
+      border: 2px solid #e2e8f0;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #667eea;
+      animation: confetti-fall 3s linear infinite;
+    }
+
+    .confetti:nth-child(odd) {
+      background: #764ba2;
+      animation-delay: 0.5s;
+    }
+
+    .confetti:nth-child(3n) {
+      background: #48bb78;
+      animation-delay: 1s;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+
+      .check-icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .check-mark {
+        font-size: 2.5rem;
+      }
+
+      .btn-container {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .footer-text {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #718096;
+      animation: fadeInUp 0.6s ease-out 1.8s both;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Confetti elements -->
+  <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="confetti" style="left: 20%; animation-delay: 0.2s;"></div>
+  <div class="confetti" style="left: 30%; animation-delay: 0.4s;"></div>
+  <div class="confetti" style="left: 40%; animation-delay: 0.6s;"></div>
+  <div class="confetti" style="left: 50%; animation-delay: 0.8s;"></div>
+  <div class="confetti" style="left: 60%; animation-delay: 1s;"></div>
+  <div class="confetti" style="left: 70%; animation-delay: 1.2s;"></div>
+  <div class="confetti" style="left: 80%; animation-delay: 1.4s;"></div>
+  <div class="confetti" style="left: 90%; animation-delay: 1.6s;"></div>
+
+  <div class="container">
+    <div class="check-icon">
+      <div class="check-mark">✓</div>
+    </div>
+
+    <h1 class="title">Success!</h1>
+    
+    <div class="message">
+      Your email has been successfully verified and your account is now active.
+    </div>
+
+    <div class="success-details">
+      <h3>🎉 What happens next?</h3>
+      <p>You can now access all features of your account and start exploring our platform. Welcome aboard!</p>
+    </div>
+
+    <div class="btn-container">
+      <a href="/" class="btn btn-primary">
+        🏠 Go to Home
+      </a>
+      <a href="/" class="btn btn-secondary">
+        🔐 Sign In
+      </a>
+    </div>
+
+    <p class="footer-text">
+      Thank you for joining our community! 🚀
+    </p>
+  </div>
+
+  <script>
+    // Add some interactive confetti on click
+    document.addEventListener('click', function(e) {
+      createConfetti(e.clientX, e.clientY);
+    });
+
+    function createConfetti(x, y) {
+      const colors = ['#667eea', '#764ba2', '#48bb78', '#38a169'];
+      
+      for (let i = 0; i < 10; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.left = x + 'px';
+        confetti.style.top = y + 'px';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.borderRadius = '50%';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '1000';
+        
+        const angle = (Math.PI * 2 * i) / 10;
+        const velocity = 50 + Math.random() * 50;
+        const gravity = 0.5;
+        let velocityX = Math.cos(angle) * velocity;
+        let velocityY = Math.sin(angle) * velocity;
+        
+        document.body.appendChild(confetti);
+        
+        let posX = x;
+        let posY = y;
+        let opacity = 1;
+        
+        function animate() {
+          posX += velocityX;
+          posY += velocityY;
+          velocityY += gravity;
+          opacity -= 0.02;
+          
+          confetti.style.left = posX + 'px';
+          confetti.style.top = posY + 'px';
+          confetti.style.opacity = opacity;
+          
+          if (opacity > 0 && posY < window.innerHeight) {
+            requestAnimationFrame(animate);
+          } else {
+            confetti.remove();
+          }
+        }
+        
+        animate();
+      }
+    }
+
+    // Auto-trigger celebration after page loads
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        createConfetti(window.innerWidth / 2, window.innerHeight / 2);
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
