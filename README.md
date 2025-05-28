@@ -285,6 +285,27 @@ All errors return a consistent JSON format:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+##  🤖 Development Process & AI Assistance
+I'll be honest - like most developers today, I used ChatGPT and Claude to help with parts of this project. Here's how and why:
+What I used AI for:
+
+Getting unstuck when I hit roadblocks with MongoDB queries and Mongoose schemas
+Double-checking my error handling patterns and making sure I wasn't missing edge cases
+Help with writing comprehensive documentation (because let's face it, good docs take forever)
+Reviewing my code structure and getting suggestions for cleaner implementations
+Understanding best practices for file uploads and email service integration
+
+Why I chose this approach:
+
+I'm still learning, and AI helped me understand concepts faster than digging through documentation for hours
+It's honestly how most developers work now - why reinvent the wheel when you can focus on solving the actual problem?
+I wanted to deliver quality code within the timeframe, and AI helped me avoid common pitfalls
+It's a tool that helps me learn better practices, not a replacement for understanding the code
+
+**The important part:** Every line of code in this project, I understand and can explain. I didn't just copy-paste - I used AI as a coding partner to discuss solutions, then implemented and tested everything myself. The architecture, logic flow, and problem-solving approach are all mine.
+I believe being transparent about using modern development tools shows I'm keeping up with how software is actually built today, while still maintaining the core skills and understanding that matter.
+
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
